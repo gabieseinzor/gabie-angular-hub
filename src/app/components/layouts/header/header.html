@@ -1,0 +1,53 @@
+<header class="navbar bg-base-100 shadow-sm px-8">
+  <div class="flex-1">
+    <a routerLink="/" class="btn btn-ghost text-xl font-bold">
+      Gabie<span class="text-primary">.ng</span>
+    </a>
+  </div>
+
+  <nav class="flex items-center gap-1">
+    <a
+      routerLink="/"
+      routerLinkActive="text-primary"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="btn btn-ghost"
+      >Accueil</a
+    >
+
+    <!-- Lessons -->
+    <div class="dropdown dropdown-hover dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost">Lessons</div>
+      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-10 w-56 p-2 shadow">
+        <li>
+          <a routerLink="/text-interpolation-lesson" routerLinkActive="menu-active"
+            >Interpolation de texte
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Exercices -->
+    <div class="dropdown dropdown-hover dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost">Exercices</div>
+      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-10 w-56 p-2 shadow">
+        <li>
+          <a routerLink="/text-interpolation-exercise" routerLinkActive="menu-active"
+            >Interpolation de texte
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- TP -->
+    <div class="dropdown dropdown-hover dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost">TP</div>
+      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-10 w-56 p-2 shadow">
+        <!-- <li>
+          <a routerLink="/tp/tp-1" routerLinkActive="menu-active">TP 1</a>
+        </li> -->
+      </ul>
+    </div>
+
+    <a routerLink="/about" routerLinkActive="text-primary" class="btn btn-ghost">À propos</a>
+  </nav>
+</header>
