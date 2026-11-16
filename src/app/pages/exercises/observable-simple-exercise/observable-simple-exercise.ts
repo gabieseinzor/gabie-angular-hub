@@ -14,6 +14,7 @@ export class ObservableSimpleExercise implements OnDestroy {
 
   start(): void {
     if (this.subscription) return;
+    console.log('Démarrage du générateur');
     this.subscription = interval(1000).subscribe(() => {
       // crée un nombre aléatoire
       const nombre = Math.floor(Math.random() * 100) + 1;
@@ -25,29 +26,33 @@ export class ObservableSimpleExercise implements OnDestroy {
 
   pauseResume(): void {
     // inverse la valeur de paused()
-      this.paused.update((valeur) => !valeur);
-      if(this.paused()){
-        this.stopSubscription();
-      }else{
-        this.start();
-      }
+    this.paused.update((valeur) => !valeur);
+    if (this.paused()) {
+      console.log('Générateur en pause');
+
+      this.stopSubscription();
+    } else {
+      console.log('Reprise du générateur');
+      this.start();
+    }
   }
 
   stop(): void {
+    console.log('Arrêt du générateur');
     this.stopSubscription();
     this.numbers.set([]);
     this.paused.set(false);
   }
 
   private stopSubscription(): void {
-  if (this.subscription) {
-    this.subscription.unsubscribe();
-    this.subscription = null;
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
   }
-}
 
   ngOnDestroy(): void {
-      this.stopSubscription();
-
+    console.log('Destruction du composant');
+    this.stopSubscription();
   }
 }
