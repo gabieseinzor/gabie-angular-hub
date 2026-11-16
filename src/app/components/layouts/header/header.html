@@ -15,33 +15,61 @@
     >
 
     <!-- Lessons -->
-    <div class="dropdown dropdown-hover dropdown-end">
+    <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost">Lessons</div>
-      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-10 w-56 p-2 shadow">
+      <ul
+        tabindex="0"
+        class="dropdown-content menu bg-base-100 rounded-box z-10 w-56 p-2 shadow"
+        (click)="closeMenu()"
+      >
         <li>
           <a routerLink="/text-interpolation-lesson" routerLinkActive="menu-active"
-            >Interpolation de texte
-          </a>
+            >Interpolation de texte</a
+          >
+        </li>
+        <li>
+          <a routerLink="/event-binding-lesson" routerLinkActive="menu-active">Event binding</a>
+        </li>
+        <li>
+          <a routerLink="/attributes-binding-lesson" routerLinkActive="menu-active"
+            >Property et attribute binding</a
+          >
+        </li>
+        <li>
+          <a routerLink="/conditional-rendering-lesson" routerLinkActive="menu-active"
+            >Rendu conditionnel</a
+          >
+        </li>
+        <li>
+          <a routerLink="/two-way-binding-lesson" routerLinkActive="menu-active">Two-way binding</a>
         </li>
       </ul>
     </div>
 
     <!-- Exercices -->
-    <div class="dropdown dropdown-hover dropdown-end">
+    <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost">Exercices</div>
-      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-10 w-56 p-2 shadow">
+      <ul
+        tabindex="0"
+        class="dropdown-content menu bg-base-100 rounded-box z-10 w-56 p-2 shadow"
+        (click)="closeMenu()"
+      >
         <li>
           <a routerLink="/text-interpolation-exercise" routerLinkActive="menu-active"
-            >Interpolation de texte
-          </a>
+            >Interpolation de texte</a
+          >
         </li>
       </ul>
     </div>
 
     <!-- TP -->
-    <div class="dropdown dropdown-hover dropdown-end">
+    <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost">TP</div>
-      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-10 w-56 p-2 shadow">
+      <ul
+        tabindex="0"
+        class="dropdown-content menu bg-base-100 rounded-box z-10 w-56 p-2 shadow"
+        (click)="closeMenu()"
+      >
         <!-- <li>
           <a routerLink="/tp/tp-1" routerLinkActive="menu-active">TP 1</a>
         </li> -->

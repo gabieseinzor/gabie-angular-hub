@@ -6,4 +6,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './header.html',
 })
-export class Header {}
+export class Header {
+  closeMenu(): void {
+  (document.activeElement as HTMLElement | null)?.blur();
+}
+}

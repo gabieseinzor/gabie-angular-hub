@@ -7,6 +7,11 @@ import { LikeButton } from './components/like-button/like-button';
 import { Confidentialite } from './pages/confidentialite/confidentialite';
 import { TextInterpolationLesson } from './pages/lessons/text-interpolation-lesson/text-interpolation-lesson';
 import { TextInterpolationExercise } from './pages/exercises/text-interpolation-exercise/text-interpolation-exercise';
+import { EventBindingLesson } from './pages/lessons/event-binding-lesson/event-binding-lesson';
+import { AttributesBindingLesson } from './pages/lessons/attributes-binding-lesson/attributes-binding-lesson';
+import { ConditionalRenderingLesson } from './pages/lessons/conditional-rendering-lesson/conditional-rendering-lesson';
+import { TwoWayBindingLesson } from './pages/lessons/two-way-binding-lesson/two-way-binding-lesson';
+import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -15,6 +20,11 @@ export const routes: Routes = [
     { path: 'confidentialite', component:Confidentialite },
     { path: 'text-interpolation-lesson', component:TextInterpolationLesson },
     { path: 'text-interpolation-exercise', component: TextInterpolationExercise },
+    { path: 'event-binding-lesson', component: EventBindingLesson },
+    { path: 'attributes-binding-lesson', component: AttributesBindingLesson },
+    { path: 'conditional-rendering-lesson', component: ConditionalRenderingLesson },
+    { path: 'two-way-binding-lesson', component: TwoWayBindingLesson },
+    { path: '**', component: NotFound },
 
 
 ];
