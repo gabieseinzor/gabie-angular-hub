@@ -11,8 +11,8 @@ import { EventBindingLesson } from './pages/lessons/event-binding-lesson/event-b
 import { AttributesBindingLesson } from './pages/lessons/attributes-binding-lesson/attributes-binding-lesson';
 import { ConditionalRenderingLesson } from './pages/lessons/conditional-rendering-lesson/conditional-rendering-lesson';
 import { TwoWayBindingLesson } from './pages/lessons/two-way-binding-lesson/two-way-binding-lesson';
-import { CompteurExercise } from './pages/exercises/compteur-exercise/compteur-exercise';
 import { ObservableSimpleExercise } from './pages/exercises/observable-simple-exercise/observable-simple-exercise';
+import { CounterExercise } from './pages/exercises/counter-exercise/counter-exercise';
 import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
@@ -26,8 +26,8 @@ export const routes: Routes = [
     { path: 'attributes-binding-lesson', component: AttributesBindingLesson },
     { path: 'conditional-rendering-lesson', component: ConditionalRenderingLesson },
     { path: 'two-way-binding-lesson', component: TwoWayBindingLesson },
-    { path: 'compteur-exercise', component: CompteurExercise },
     { path: 'observable-simple-exercise', component: ObservableSimpleExercise },
+    { path: 'counter-exercise', component: CounterExercise },
 
     { path: '**', component: NotFound },
 

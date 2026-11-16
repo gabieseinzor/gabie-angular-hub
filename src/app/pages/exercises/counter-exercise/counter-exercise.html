@@ -1,0 +1,26 @@
+<div class="card bg-base-100 w-96 shadow-md border border-base-300 mx-auto my-10">
+  <div class="card-body items-center text-center gap-4">
+    <h2 class="card-title text-primary">Compteur</h2>
+
+    <!-- à lier : {{ count() }} + [class.text-error] / [class.text-success] -->
+    <p
+      class="text-7xl font-mono font-bold"
+      [class.text-error]="count() <= 0"
+      [class.text-success]="count() >= 10"
+    >
+      {{ count() }}
+    </p>
+
+    <p class="text-sm text-base-content/60">{{ message() }}</p>
+
+    <progress class="progress progress-primary w-full" [value]="pourcentage()" max="100"></progress>
+
+    <div class="card-actions justify-center">
+      <button class="btn btn-error" (click)="decrement()" [disabled]="count() <= 0">−1</button>
+
+      <button class="btn btn-ghost" (click)="reset()">Remettre à 0</button>
+
+      <button class="btn btn-success" (click)="increment()" [disabled]="count() >= 10">+1</button>
+    </div>
+  </div>
+</div>
