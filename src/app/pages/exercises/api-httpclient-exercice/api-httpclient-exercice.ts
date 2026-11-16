@@ -22,6 +22,7 @@ export class ApiHttpclientExercice implements OnInit {
   ngOnInit(): void {
     this.loadPage(this.currentPage());
   }
+
   loadPage(page: number): void {
     this.isLoading.set(true);
     this.errorMessage.set(null);
@@ -44,5 +45,12 @@ export class ApiHttpclientExercice implements OnInit {
         this.lastRequestLog.set(`echec dans le chargement des digimons`);
       },
     });
+  }
+  nextPage(): void {
+    this.loadPage(this.currentPage() + 1);
+  }
+
+  previousPage(): void {
+    this.loadPage(this.currentPage() - 1);
   }
 }

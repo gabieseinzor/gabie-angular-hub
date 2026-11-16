@@ -9,8 +9,10 @@
       </p>
       <p class="text-xs font-mono text-base-content/60">{{ lastRequestLog() }}</p>
     </div>
-   
-    <span class="badge badge-primary badge-outline badge-lg">Page 1 / 297</span>
+
+    <span class="badge badge-primary badge-outline badge-lg">
+      Page {{ currentPage() + 1 }} / {{ totalPages() }}</span
+    >
   </header>
 
   @if (isLoading()) {
@@ -41,15 +43,19 @@
     <!-- Fin de la carte -->
   </ul>
 
-  
   <nav class="flex items-center justify-center gap-4" aria-label="Pagination">
-    
-    <button class="btn btn-outline btn-sm">← Précédent</button>
+    <button class="btn btn-outline btn-sm" (click)="previousPage()" [disabled]="currentPage() <= 0">
+      ← Précédent
+    </button>
 
-    
     <span class="text-sm text-base-content/70">Page 1 sur 297</span>
 
-    
-    <button class="btn btn-primary btn-sm">Suivant →</button>
+    <button
+      class="btn btn-primary btn-sm"
+      (click)="nextPage()"
+      [disabled]="currentPage() >= totalPages() - 1"
+    >
+      Suivant →
+    </button>
   </nav>
 </section>
