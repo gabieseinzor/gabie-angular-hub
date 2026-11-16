@@ -7,13 +7,15 @@ import { Component, computed, signal } from '@angular/core';
 })
 export class CounterExercise {
   count = signal<number>(0);
+  
    message = computed(() => { 
+
     if(this.count()<=0){
       return "Compteur à zéro"
     } else if (this.count() >= 10){
-      return "Maximum atteint"
+      return "Maximum atteint";
     } else{
-      return `Valeur : ${this.count()}`
+      return `Valeur : ${this.count()}`;
     }
    });
 
@@ -23,10 +25,10 @@ export class CounterExercise {
     this.count.update((v)=>v+1);
   }
   decrement(): void{
-    this.count.update((v)=>v-1)
+    this.count.update((v)=>v-1);
   }
 
   reset(): void{
-    this.count.update((v)=>0);
+    this.count.set(0);
   }
 }
