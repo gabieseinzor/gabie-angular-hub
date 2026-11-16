@@ -13,6 +13,9 @@ import { ConditionalRenderingLesson } from './pages/lessons/conditional-renderin
 import { TwoWayBindingLesson } from './pages/lessons/two-way-binding-lesson/two-way-binding-lesson';
 import { ObservableSimpleExercise } from './pages/exercises/observable-simple-exercise/observable-simple-exercise';
 import { CounterExercise } from './pages/exercises/counter-exercise/counter-exercise';
+import { TodoExercise } from './pages/exercises/todo-exercise/todo-exercise';
+import { ApiHttpclientExercice } from './pages/exercises/api-httpclient-exercice/api-httpclient-exercice';
+
 import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
@@ -28,7 +31,9 @@ export const routes: Routes = [
     { path: 'two-way-binding-lesson', component: TwoWayBindingLesson },
     { path: 'observable-simple-exercise', component: ObservableSimpleExercise },
     { path: 'counter-exercise', component: CounterExercise },
-
+    { path: 'todo-exercise', component: TodoExercise },
+    { path: 'api-httpclient-exercice', component: ApiHttpclientExercice },
+    
     { path: '**', component: NotFound },
 
 

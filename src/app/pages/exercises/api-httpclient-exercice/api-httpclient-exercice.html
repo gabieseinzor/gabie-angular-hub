@@ -1,0 +1,55 @@
+<section class="max-w-5xl mx-auto my-10 p-4 space-y-8">
+  <!-- En-tête -->
+  <header class="flex flex-wrap items-start justify-between gap-4">
+    <div class="space-y-1">
+      <h1 class="text-3xl font-bold text-primary">Digidex — Exercice HttpClient</h1>
+      <p class="text-sm text-base-content/60">
+        Consommation de l'API publique <code class="font-mono">digi-api.com</code> avec
+        <code class="font-mono">HttpClient</code> et les Signals.
+      </p>
+      <p class="text-xs font-mono text-base-content/60">{{ lastRequestLog() }}</p>
+    </div>
+   
+    <span class="badge badge-primary badge-outline badge-lg">Page 1 / 297</span>
+  </header>
+
+  @if (isLoading()) {
+    <div class="flex justify-center py-10">
+      <span class="loading loading-spinner loading-lg text-primary"></span>
+    </div>
+  }
+  @if (errorMessage()) {
+    <div role="alert" class="alert alert-error">
+      <span>{{ errorMessage() }}</span>
+    </div>
+  }
+
+  <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+    @for (digimon of digimons(); track digimon.id) {
+      <li class="card bg-base-100 border border-base-300 shadow-sm transition hover:shadow-md">
+        <figure class="px-4 pt-4">
+          <img [src]="digimon.image" [alt]="digimon.name" class="h-32 w-full object-contain" />
+        </figure>
+        <div class="card-body items-center gap-1 p-4 text-center">
+          <span class="text-xs text-base-content/50">#{{ digimon.id }}</span>
+          <h2 class="card-title text-base">{{ digimon.name }}</h2>
+        </div>
+      </li>
+    } @empty {
+      <p class="py-10 text-center text-sm italic text-base-content/50">Aucun digimon trouvé.</p>
+    }
+    <!-- Fin de la carte -->
+  </ul>
+
+  
+  <nav class="flex items-center justify-center gap-4" aria-label="Pagination">
+    
+    <button class="btn btn-outline btn-sm">← Précédent</button>
+
+    
+    <span class="text-sm text-base-content/70">Page 1 sur 297</span>
+
+    
+    <button class="btn btn-primary btn-sm">Suivant →</button>
+  </nav>
+</section>
