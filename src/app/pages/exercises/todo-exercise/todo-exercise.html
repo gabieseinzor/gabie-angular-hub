@@ -1,0 +1,56 @@
+<section class="max-w-xl mx-auto my-10 p-4 space-y-6">
+  <header class="text-center space-y-1">
+    <h1 class="text-3xl font-bold text-primary">Liste de tâches</h1>
+    <p class="text-sm text-base-content/60">Signaux, Signal Forms, input() et output()</p>
+  </header>
+
+  <!-- Saisie -->
+  <div class="join w-full">
+    <input
+      type="text"
+      class="input input-bordered join-item w-full"
+      placeholder="Nouvelle tâche…"
+      [formField]="newTaskForm.title"
+      (keyup.enter)="addTask()"
+    />
+    <button class="btn btn-primary join-item" (click)="addTask()">Ajouter</button>
+  </div>
+
+  <article class="card bg-base-100 shadow-md border border-base-300">
+    <div class="card-body gap-4">
+      <!-- Résumé -->
+      <div class="flex items-center justify-between">
+        <h2 class="card-title text-secondary">Mes tâches</h2>
+        <span class="badge badge-primary badge-outline">
+          {{ remaining() }} restantes sur {{ total() }}
+        </span>
+      </div>
+
+      <!-- Message de réussite -->
+      @if (allDone()) {
+        <div role="alert" class="alert alert-success">
+          <span>Bravo, tout est terminé !</span>
+        </div>
+      }
+
+      <!-- Liste -->
+      <ul class="space-y-2">
+        @for (task of tasks(); track task.id) {
+          <!-- Provisoire : à remplacer par <app-task-item [task]="task" ... /> à l'étape 3 -->
+          <li class="rounded-box bg-base-200 p-3">{{ task.title }}</li>
+        } @empty {
+          <li class="py-6 text-center text-sm italic text-base-content/50">
+            Aucune tâche pour l'instant.
+          </li>
+        }
+      </ul>
+
+      <!-- Suppression des terminées : (click)="clearDone()" à ajouter plus tard -->
+      <div class="card-actions justify-end">
+        <button class="btn btn-ghost btn-sm" [disabled]="remaining() === total()">
+          Supprimer les terminées
+        </button>
+      </div>
+    </div>
+  </article>
+</section>
