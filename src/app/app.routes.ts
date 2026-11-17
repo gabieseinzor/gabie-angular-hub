@@ -15,26 +15,26 @@ import { ObservableSimpleExercise } from './pages/exercises/observable-simple-ex
 import { CounterExercise } from './pages/exercises/counter-exercise/counter-exercise';
 import { TodoExercise } from './pages/exercises/todo-exercise/todo-exercise';
 import { ApiHttpclientExercice } from './pages/exercises/api-httpclient-exercice/api-httpclient-exercice';
+import { HttpApi } from './pages/exercises/http-api/http-api';
 
 import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
-    { path: '', component: Home },
-    { path: 'about', component: About },
-    { path: 'mentions-legales', component: MentionsLegales },
-    { path: 'confidentialite', component:Confidentialite },
-    { path: 'text-interpolation-lesson', component:TextInterpolationLesson },
-    { path: 'text-interpolation-exercise', component: TextInterpolationExercise },
-    { path: 'event-binding-lesson', component: EventBindingLesson },
-    { path: 'attributes-binding-lesson', component: AttributesBindingLesson },
-    { path: 'conditional-rendering-lesson', component: ConditionalRenderingLesson },
-    { path: 'two-way-binding-lesson', component: TwoWayBindingLesson },
-    { path: 'observable-simple-exercise', component: ObservableSimpleExercise },
-    { path: 'counter-exercise', component: CounterExercise },
-    { path: 'todo-exercise', component: TodoExercise },
-    { path: 'api-httpclient-exercice', component: ApiHttpclientExercice },
-    
-    { path: '**', component: NotFound },
+  { path: '', component: Home },
+  { path: 'about', component: About },
+  { path: 'mentions-legales', component: MentionsLegales },
+  { path: 'confidentialite', component: Confidentialite },
+  { path: 'text-interpolation-lesson', component: TextInterpolationLesson },
+  { path: 'text-interpolation-exercise', component: TextInterpolationExercise },
+  { path: 'event-binding-lesson', component: EventBindingLesson },
+  { path: 'attributes-binding-lesson', component: AttributesBindingLesson },
+  { path: 'conditional-rendering-lesson', component: ConditionalRenderingLesson },
+  { path: 'two-way-binding-lesson', component: TwoWayBindingLesson },
+  { path: 'observable-simple-exercise', component: ObservableSimpleExercise },
+  { path: 'counter-exercise', component: CounterExercise },
+  { path: 'todo-exercise', component: TodoExercise },
+  { path: 'api-httpclient-exercice', component: ApiHttpclientExercice },
+  { path: 'http-api', component: HttpApi },
 
-
+  { path: '**', component: NotFound },
 ];
