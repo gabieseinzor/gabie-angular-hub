@@ -29,7 +29,6 @@ export class ObservableSimpleExercise implements OnDestroy {
     this.paused.update((valeur) => !valeur);
     if (this.paused()) {
       console.log('Générateur en pause');
-
       this.stopSubscription();
     } else {
       console.log('Reprise du générateur');
