@@ -34,10 +34,9 @@
       }
 
       <!-- Liste -->
-      <ul class="space-y-2">
+      <ul class="flex flex-col gap-2">
         @for (task of tasks(); track task.id) {
-          <!-- Provisoire : à remplacer par <app-task-item [task]="task" ... /> à l'étape 3 -->
-          <li class="rounded-box bg-base-200 p-3">{{ task.title }}</li>
+          <app-task-item [task]="task" (toggled)="toggle($event)" (removed)="remove($event)" />
         } @empty {
           <li class="py-6 text-center text-sm italic text-base-content/50">
             Aucune tâche pour l'instant.
@@ -47,7 +46,11 @@
 
       <!-- Suppression des terminées : (click)="clearDone()" à ajouter plus tard -->
       <div class="card-actions justify-end">
-        <button class="btn btn-ghost btn-sm" [disabled]="remaining() === total()">
+        <button
+          class="btn btn-ghost btn-sm"
+          [disabled]="remaining() === total()"
+          (click)="clearDone()"
+        >
           Supprimer les terminées
         </button>
       </div>
