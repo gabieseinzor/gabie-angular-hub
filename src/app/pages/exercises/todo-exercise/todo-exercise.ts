@@ -1,5 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
 import { form, FormField } from '@angular/forms/signals';
+import { TaskItem } from '../../../components/task-item/task-item';
 
 export interface Task {
   id: number;
@@ -7,7 +8,7 @@ export interface Task {
   done: boolean;
 }
 @Component({
-  imports: [FormField],
+  imports: [FormField, TaskItem],
   selector: 'app-todo-exercise',
   styleUrl: './todo-exercise.css',
   templateUrl: './todo-exercise.html',
@@ -35,5 +36,19 @@ export class TodoExercise {
     console.log(this.tasks());
     this.nextId++;
     this.newTaskModel.set({ title: '' });
+  }
+
+  toggle(id: number): void {
+    this.tasks.update((current) =>
+      current.map((task) => (task.id === id ? { ...task, done: !task.done } : task)),
+    );
+  }
+
+  remove(id: number): void {
+    this.tasks.update((current) => current.filter((task) => task.id !== id));
+  }
+
+  clearDone(): void {
+    this.tasks.update((current) => current.filter((task) => !task.done));
   }
 }
