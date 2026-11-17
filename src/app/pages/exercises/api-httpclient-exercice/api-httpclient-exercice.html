@@ -48,7 +48,9 @@
       ← Précédent
     </button>
 
-    <span class="text-sm text-base-content/70">Page 1 sur 297</span>
+    <span class="text-sm text-base-content/70">
+      Page {{ currentPage() + 1 }} sur {{ totalPages() }}
+    </span>
 
     <button
       class="btn btn-primary btn-sm"
