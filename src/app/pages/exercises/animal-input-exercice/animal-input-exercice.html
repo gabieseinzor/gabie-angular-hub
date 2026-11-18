@@ -1,0 +1,34 @@
+<section class="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-8">
+  <!-- Titre -->
+  <header class="text-center">
+    <h1 class="text-3xl font-extrabold">🐾 Refuge Animalier — Exercice Input</h1>
+    <p class="mt-2 text-sm opacity-70">
+      Communication Parent → Enfant avec <code>input()</code> et <code>input.required()</code>.
+    </p>
+  </header>
+
+  <!-- Galerie -->
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    @for (animal of animals(); track animal.id) {
+      <app-animal-card
+        [name]="animal.name"
+        [species]="animal.species"
+        [age]="animal.age"
+        [isAdopted]="animal.isAdopted"
+        [energyLevel]="animal.energyLevel"
+      />
+    }
+  </div>
+
+  <!-- Nouvel arrivant -->
+  <section class="flex flex-col gap-3 border-t border-base-300 pt-6">
+    <h2 class="text-xl font-bold">🆕 Nouvel arrivant</h2>
+    <p class="text-sm opacity-70">
+      Seuls le nom et l'espèce sont renseignés : les autres valeurs viennent des valeurs par défaut.
+    </p>
+
+    <div class="max-w-sm">
+      <app-animal-card name="Mystère" species="autre" />
+    </div>
+  </section>
+</section>
