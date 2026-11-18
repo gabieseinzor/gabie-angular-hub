@@ -1,0 +1,48 @@
+<div class="card border border-base-300 bg-base-100 shadow-md">
+  <div class="card-body gap-4 p-5">
+    <!-- En-tête : emoji, nom, espèce, statut -->
+    <div class="flex items-start justify-between gap-3" [class.opacity-40]="isAdopted()">
+      <div class="flex items-center gap-3">
+        <div class="flex h-12 w-12 items-center justify-center rounded-box bg-base-200 text-3xl">
+          {{ emoji() }}
+        </div>
+        <div class="flex flex-col gap-1">
+          <h2 class="text-lg font-bold leading-none">{{ name() }}</h2>
+          <span class="badge badge-neutral badge-sm capitalize">{{ species() }}</span>
+        </div>
+      </div>
+      <span
+        class="badge"
+        [class.badge-outline]="!isAdopted()"
+        [class.badge-success]="isAdopted()"
+        >{{ isAdopted() ? 'Adopté ❤️' : 'À adopter' }}</span
+      >
+    </div>
+
+    <!-- Caractéristiques -->
+    <div class="flex flex-col gap-2 border-t border-base-300 pt-3 text-sm">
+      <div class="flex justify-between">
+        <span class="opacity-70">Âge :</span>
+        <span class="font-bold">{{ ageLabel() }}</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="opacity-70">Niveau d'énergie</span>
+        <span class="font-bold">{{ energyLevel() }} %</span>
+      </div>
+      <progress
+        class="progress progress-neutral w-full"
+        [value]="energyLevel()"
+        max="100"
+      ></progress>
+    </div>
+
+    <!-- Actions (sans effet pour l'instant) -->
+    <div class="flex items-center justify-between border-t border-base-300 pt-3">
+      <div class="flex gap-1">
+        <button class="btn btn-ghost btn-xs">🎾 Jouer</button>
+        <button class="btn btn-ghost btn-xs">💤 Sieste</button>
+      </div>
+      <button class="btn btn-neutral btn-sm">Adopter</button>
+    </div>
+  </div>
+</div>

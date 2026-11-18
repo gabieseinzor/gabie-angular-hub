@@ -18,6 +18,7 @@ import { ApiHttpclientExercice } from './pages/exercises/api-httpclient-exercice
 import { HttpApi } from './pages/exercises/http-api/http-api';
 import { ModelsLesson } from './pages/lessons/models-lesson/models-lesson';
 import { ServicesInjectionLesson } from './pages/lessons/services-injection-lesson/services-injection-lesson';
+import { AnimalInputExercice } from './pages/exercises/animal-input-exercice/animal-input-exercice';
 
 import { NotFound } from './pages/not-found/not-found';
 
@@ -39,6 +40,7 @@ export const routes: Routes = [
   { path: 'http-api', component: HttpApi },
   { path: 'models-lesson', component: ModelsLesson },
   { path: 'services-injection-lesson', component: ServicesInjectionLesson },
+  { path: 'animal-input', component: AnimalInputExercice },
 
   { path: '**', component: NotFound },
 ];
