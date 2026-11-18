@@ -1,0 +1,102 @@
+<section class="mx-auto flex max-w-4xl flex-col gap-6 px-4 py-8">
+  <div class="flex gap-2">
+    <input
+      type="text"
+      class="input input-bordered w-full"
+      placeholder="Ville…"
+      [formField]="searchForm.city"
+      (keyup.enter)="search()"
+    />
+    <button class="btn btn-primary" (click)="search()">Rechercher</button>
+  </div>
+  <div class="flex flex-wrap items-center gap-2">
+    <span class="text-sm opacity-70">Villes rapides :</span>
+    @for (city of quickSearchCities; track city) {
+      <button class="btn btn-sm btn-outline" (click)="selectQuickCity(city)">{{ city }}</button>
+    }
+  </div>
+  @if (isLoading()) {
+    <span class="loading loading-spinner loading-lg"></span>
+  } @else if (errorMessage()) {
+    <div role="alert" class="alert alert-error">
+      <span>{{ errorMessage() }}</span>
+    </div>
+  } @else if (meteoData(); as meteo) {
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body gap-6">
+        <!-- En-tête : ville + température -->
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-3">
+              <h2 class="text-4xl font-extrabold">{{ meteo.city_info.name }}</h2>
+              <span class="badge badge-outline badge-primary">{{ meteo.city_info.country }}</span>
+            </div>
+            <p class="mt-1 text-sm opacity-70">
+              Altitude : <strong>{{ meteo.city_info.elevation }} m</strong> · Lever :
+              <strong>{{ meteo.city_info.sunrise }}</strong> · Coucher :
+              <strong>{{ meteo.city_info.sunset }}</strong>
+            </p>
+          </div>
+
+          <div class="flex items-center gap-4 rounded-box bg-base-200 px-6 py-4">
+            <img
+              [src]="meteo.current_condition.icon_big"
+              [alt]="meteo.current_condition.condition"
+              class="h-16 w-16"
+            />
+            <div>
+              <p class="text-5xl font-extrabold text-primary">
+                {{ meteo.current_condition.tmp }}°C
+              </p>
+              <p class="text-sm opacity-70">{{ meteo.current_condition.condition }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vent / Humidité / Pression -->
+        <div class="stats stats-vertical w-full border border-base-300 sm:stats-horizontal">
+          <div class="stat">
+            <div class="stat-title">Vent</div>
+            <div class="stat-value text-secondary">{{ meteo.current_condition.wnd_spd }} km/h</div>
+            <div class="stat-desc">Direction : {{ meteo.current_condition.wnd_dir }}</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Humidité</div>
+            <div class="stat-value text-accent">{{ meteo.current_condition.humidity }}%</div>
+            <div class="stat-desc">Relevé à {{ meteo.current_condition.hour }}</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Pression</div>
+            <div class="stat-value">{{ meteo.current_condition.pressure }} hPa</div>
+            <div class="stat-desc">{{ meteo.current_condition.date }}</div>
+          </div>
+        </div>
+
+        <!-- Prévisons sur 5 jours -->
+        <section class="flex flex-col gap-3">
+          <h3 class="text-lg font-semibold">Prévisions sur 5 jours</h3>
+
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-5">
+            @for (day of forecastDays(); track day.date) {
+              <div class="card bg-base-100 shadow-md">
+                <div class="card-body items-center p-4 text-center">
+                  <p class="font-semibold">{{ day.day_short }}</p>
+                  <p class="text-xs opacity-60">{{ day.date }}</p>
+
+                  <img [src]="day.icon_big" [alt]="day.condition" class="h-12 w-12" />
+
+                  <p class="text-sm">{{ day.condition }}</p>
+
+                  <p class="text-sm">
+                    <span class="font-bold">{{ day.tmax }}°C</span>
+                    <span class="opacity-60">/ {{ day.tmin }}°C</span>
+                  </p>
+                </div>
+              </div>
+            }
+          </div>
+        </section>
+      </div>
+    </div>
+  }
+</section>
