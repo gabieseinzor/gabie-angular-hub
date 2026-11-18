@@ -16,6 +16,8 @@ import { CounterExercise } from './pages/exercises/counter-exercise/counter-exer
 import { TodoExercise } from './pages/exercises/todo-exercise/todo-exercise';
 import { ApiHttpclientExercice } from './pages/exercises/api-httpclient-exercice/api-httpclient-exercice';
 import { HttpApi } from './pages/exercises/http-api/http-api';
+import { ModelsLesson } from './pages/lessons/models-lesson/models-lesson';
+import { ServicesInjectionLesson } from './pages/lessons/services-injection-lesson/services-injection-lesson';
 
 import { NotFound } from './pages/not-found/not-found';
 
@@ -35,6 +37,8 @@ export const routes: Routes = [
   { path: 'todo-exercise', component: TodoExercise },
   { path: 'api-httpclient-exercice', component: ApiHttpclientExercice },
   { path: 'http-api', component: HttpApi },
+  { path: 'models-lesson', component: ModelsLesson },
+  { path: 'services-injection-lesson', component: ServicesInjectionLesson },
 
   { path: '**', component: NotFound },
 ];
