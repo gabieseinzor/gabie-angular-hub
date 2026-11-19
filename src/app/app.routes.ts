@@ -20,6 +20,8 @@ import { ModelsLesson } from './pages/lessons/models-lesson/models-lesson';
 import { ServicesInjectionLesson } from './pages/lessons/services-injection-lesson/services-injection-lesson';
 import { AnimalInputExercice } from './pages/exercises/animal-input-exercice/animal-input-exercice';
 import { ComponentCommunicationTp } from './pages/tps/component-communication-tp/component-communication-tp';
+import { EnvironmentsLesson } from './pages/lessons/environments-lesson/environments-lesson';
+import { FirebaseLesson } from './pages/lessons/firebase-lesson/firebase-lesson';
 
 import { NotFound } from './pages/not-found/not-found';
 
@@ -43,6 +45,8 @@ export const routes: Routes = [
   { path: 'services-injection-lesson', component: ServicesInjectionLesson },
   { path: 'animal-input', component: AnimalInputExercice },
   { path: 'component-communication', component: ComponentCommunicationTp },
+  { path: 'environments-lesson', component: EnvironmentsLesson },
+  { path: 'firebase-lesson', component: FirebaseLesson },
 
   { path: '**', component: NotFound },
 ];
