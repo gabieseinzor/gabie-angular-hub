@@ -1,0 +1,14 @@
+<div class="card h-full border border-base-300 bg-base-100 shadow-md">
+  <div class="card-body items-center gap-4 text-center">
+    <span class="badge badge-success badge-outline">● Utilisateur actif</span>
+
+    <div
+      class="flex h-20 w-20 items-center justify-center rounded-full bg-neutral text-3xl font-bold uppercase text-neutral-content"
+    >
+      {{ activeUser().name.charAt(0) }}
+    </div>
+
+    <h2 class="card-title text-3xl">{{ activeUser().name }}</h2>
+    <p class="text-xl opacity-70">{{ activeUser().age }} ans</p>
+  </div>
+</div>
