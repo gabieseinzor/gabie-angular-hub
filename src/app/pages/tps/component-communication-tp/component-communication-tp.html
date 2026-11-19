@@ -1,0 +1,22 @@
+<section class="mx-auto flex max-w-4xl flex-col gap-8 px-4 py-10">
+  <header class="text-center">
+    <h1 class="text-3xl font-extrabold">🔗 Communication entre composants</h1>
+    <p class="mt-2 text-sm opacity-70">
+      Deux composants frères qui dialoguent par l'intermédiaire de leur parent.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2">
+    <app-tp-user-active class="block" [activeUser]="oneUser()" />
+    <app-tp-user-data class="block" (userDataEmitUpdate)="updateUser($event)" />
+  </div>
+
+  <!-- Légende du flux de données -->
+  <div class="rounded-box bg-base-200 p-4 text-center text-sm">
+    <span class="badge badge-outline">TpUserData</span>
+    <span class="mx-2">── output ──▶</span>
+    <span class="badge badge-neutral">Parent</span>
+    <span class="mx-2">── input ──▶</span>
+    <span class="badge badge-outline">TpUserActive</span>
+  </div>
+</section>

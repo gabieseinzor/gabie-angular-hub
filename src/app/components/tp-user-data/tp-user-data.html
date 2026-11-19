@@ -1,0 +1,32 @@
+<div class="card h-full border border-base-300 bg-base-100 shadow-md">
+  <div class="card-body gap-4">
+    <h2 class="card-title">✏️ Modifier l'utilisateur</h2>
+    <p class="text-sm opacity-70">
+      Saisis de nouvelles valeurs, puis valide pour les envoyer au parent.
+    </p>
+
+    <form class="flex flex-col gap-4" (submit)="validateData($event)">
+      <label class="flex flex-col gap-1">
+        <span class="text-sm font-semibold">Nom</span>
+        <input
+          type="text"
+          class="input input-bordered w-full"
+          placeholder="Ex. Gabie"
+          [formField]="userForm.name"
+        />
+      </label>
+
+      <label class="flex flex-col gap-1">
+        <span class="text-sm font-semibold">Âge</span>
+        <input
+          type="number"
+          class="input input-bordered w-full"
+          placeholder="Ex. 28"
+          [formField]="userForm.age"
+        />
+      </label>
+
+      <button class="btn btn-neutral mt-2">Valider ✓</button>
+    </form>
+  </div>
+</div>
