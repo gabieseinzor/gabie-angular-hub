@@ -4,7 +4,7 @@ export interface Animal {
   id: number;
   name: string;
   species: Species;
-  age?: number;
-  energyLevel?: number;
-  isAdopted?: boolean;
+  age: number;
+  energyLevel: number;
+  isAdopted: boolean;
 }
